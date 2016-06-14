@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Customer Service Helper</string>
+    <string name="customer">Customer</string>
+    <string name="monitor">Monitor</string>
+
+    <string name="help">Help</string>
+    <string name="hold">Hold</string>
+    <string name="hangup">Hang Up</string>
+</resources>

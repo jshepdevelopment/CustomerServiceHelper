@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jshepdevelopment.customerservicehelper.MainActivity">
+
+    <ImageView
+        android:id="@+id/onscreen"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/monitor"
+        android:src="@drawable/onscreen" />
+
+    <ImageView
+        android:id="@+id/customer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/customer"
+        android:src="@drawable/good02" />
+
+    <ImageView
+        android:id="@+id/monitor"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/monitor"
+        android:src="@drawable/monitor" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/help"
+        android:id="@+id/buttonHelp"
+        android:onClick="nextCustomer"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentBottom="true"
+         />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hold"
+        android:id="@+id/buttonHold"
+        android:onClick="nextCustomer"
+        android:layout_marginBottom="60dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hangup"
+        android:id="@+id/buttonHang"
+        android:onClick="nextCustomer"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
