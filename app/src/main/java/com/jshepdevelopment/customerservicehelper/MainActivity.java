@@ -54,12 +54,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Set customer image view based on customer type
         if(nextCustomer.isGood) {
-            randomNum = rand.nextInt(goodImages.length()) + 1;
+            randomNum = rand.nextInt(goodImages.length());
+            Log.d("JSLOG", "good randomNum is " + randomNum);
             customerView.setImageDrawable(goodImages.getDrawable(randomNum));
 
 
         } else {
-            randomNum = rand.nextInt(badImages.length()) + 1;
+            randomNum = rand.nextInt(badImages.length());
+            Log.d("JSLOG", "bad randomNum is " + randomNum);
             customerView.setImageDrawable(badImages.getDrawable(randomNum));
 
         }
