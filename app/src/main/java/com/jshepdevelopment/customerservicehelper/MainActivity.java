@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d("JSLOG", goodImages.length() + " good images.");
         Log.d("JSLOG", badImages.length() + " bad images.");
 
-
         Customer nextCustomer = new Customer();
         ImageView customerView = (ImageView) findViewById(R.id.customer);
         Animation customerMove = AnimationUtils.loadAnimation(this, R.anim.move_customer);
@@ -49,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         // Set next customer type
         nextCustomer.setCustomerType();
         Log.d("JSLOG", "newCustomer.isGood = " + nextCustomer.isGood);
-
-
 
         // Set customer image view based on customer type
         if(nextCustomer.isGood) {

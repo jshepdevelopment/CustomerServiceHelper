@@ -3,12 +3,18 @@
     <integer-array name="good_images">
         <item>@drawable/good01</item>
         <item>@drawable/good02</item>
+        <item>@drawable/good03</item>
+        <item>@drawable/good04</item>
+        <item>@drawable/good05</item>
     </integer-array>
 
     <integer-array name="bad_images">
         <item>@drawable/bad01</item>
         <item>@drawable/bad02</item>
         <item>@drawable/bad03</item>
+        <item>@drawable/bad04</item>
+        <item>@drawable/bad05</item>
+
     </integer-array>
 
 </resources>
