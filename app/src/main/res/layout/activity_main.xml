@@ -12,14 +12,48 @@
         android:contentDescription="@string/monitor"
         android:src="@drawable/onscreen" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/served"
+        android:textAlignment="center"
+        android:id="@+id/servedText" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/servedText"
+        android:text="@string/correct"
+        android:textAlignment="center"
+        android:id="@+id/correctText" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/correctText"
+        android:text="@string/timer"
+        android:textAlignment="center"
+        android:id="@+id/timerText" />
+
+
     <ImageView
         android:id="@+id/customer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_above="@id/servedText"
         android:contentDescription="@string/customer"
-        android:src="@drawable/good02" />
+        android:src="@drawable/good02"
+        android:paddingBottom="20dp" />
 
     <ImageView
         android:id="@+id/monitor"
@@ -34,11 +68,10 @@
         android:layout_height="wrap_content"
         android:text="@string/help"
         android:id="@+id/buttonHelp"
-        android:onClick="nextCustomer"
-        android:layout_marginBottom="35dp"
+        android:onClick="helpButton"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="20dp"
-        android:layout_alignParentBottom="true"
-         />
+        android:layout_alignParentBottom="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -46,10 +79,10 @@
         android:layout_height="wrap_content"
         android:text="@string/hold"
         android:id="@+id/buttonHold"
-        android:onClick="nextCustomer"
-        android:layout_marginBottom="35dp"
-        android:layout_centerInParent="true"
-        android:layout_alignParentBottom="true"/>
+        android:onClick="holdButton"
+        android:layout_alignTop="@+id/buttonHelp"
+        android:layout_toLeftOf="@+id/customer"
+        android:layout_toStartOf="@+id/customer" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -57,8 +90,8 @@
         android:layout_height="wrap_content"
         android:text="@string/hangup"
         android:id="@+id/buttonHang"
-        android:onClick="nextCustomer"
-        android:layout_marginBottom="35dp"
+        android:onClick="hangupButton"
+        android:layout_marginBottom="15dp"
         android:layout_marginRight="20dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"/>
