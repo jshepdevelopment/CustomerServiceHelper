@@ -17,4 +17,16 @@
 
     </integer-array>
 
+    <string-array name="newsitems">
+        <item>Customer service representative finds peace in Android game</item>
+        <item>Giant corporation hires more minions to take customer care calls</item>
+        <item>Worthless employees earn company billions in revenue</item>
+        <item>Finding work for the homeless, MegaBIG hires new customer service reps</item>
+        <item>Understaffed and undercompensated employees, Bish Wireless finds they dont care</item>
+        <item>Call center fire reported by no-one, because DynaCorpBig Inc. forgot about them.</item>
+        <item>EARN MORE $$$ WORK AS CUSTOMER SERVICE MINION</item>
+        <item>WANT $$$? BISH is HIRING for CUSTOMER SERVICE at COMPETITIVE fast food MANAGER wages!</item>
+        <item>Your AD here. Your AD here. Give $$$ for your AD here.</item>
+    </string-array>
+
 </resources>

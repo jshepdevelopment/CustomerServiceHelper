@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView timerTextView;
     long startTime = 0;
+    long newsStartTime = 0;
+
     public int customerCount = 0;
     public int hangupCount = 0;
     public int helpCount = 0;
@@ -47,6 +50,26 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    Handler newsTimerHandler = new Handler();
+    Runnable newsTimerRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+            long millis = System.currentTimeMillis() - newsStartTime;
+            int seconds = (int) (millis / 1000);
+            int minutes = seconds / 60;
+            seconds = seconds % 60;
+
+            Log.d("JSLOG", "Newsfeed seconds: " + seconds);
+
+            // Update news item every 15 seconds
+            if(seconds % 15 == 0) {
+                nextNewsItem();
+            }
+            newsTimerHandler.postDelayed(this, 500);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +83,32 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.servedText);
         textView.setText(customerCount + " customers served.");
 
-        //Set up animation
-        //Animation customerMove = AnimationUtils.loadAnimation(this, R.anim.move_customer);
-        //Start the animation
-        //customerView.startAnimation(customerMove);
+        TextView newsfeedTextView=(TextView) findViewById(R.id.newsfeedmarquee);
+        newsfeedTextView.setSelected(true);
+
+        //Start the next customer animation
         nextCustomer();
+
+        newsStartTime = System.currentTimeMillis();
+        newsTimerHandler.postDelayed(newsTimerRunnable, 0);
+
+    }
+
+    public void nextNewsItem() {
+
+        Random rand = new Random();
+        int randomNum;
+
+        // Gets text from array
+        TypedArray newsFeedItems = getResources().obtainTypedArray(R.array.newsitems);
+        randomNum = rand.nextInt(newsFeedItems.length());
+
+        // Assign textview based on random value from array
+        TextView newsfeedTextView=(TextView) findViewById(R.id.newsfeedmarquee);
+        newsfeedTextView.setSelected(true);
+        newsfeedTextView.setText(newsFeedItems.getText(randomNum));
+
+        Log.d("JSLOG", "Newsfeed item updated.");
     }
 
     public void nextCustomer() {
@@ -76,9 +120,6 @@ public class MainActivity extends AppCompatActivity {
         // Setup  TypedArrays for good and bad images
         TypedArray goodImages = getResources().obtainTypedArray(R.array.good_images);
         TypedArray badImages = getResources().obtainTypedArray(R.array.bad_images);
-
-        Log.d("JSLOG", goodImages.length() + " good images.");
-        Log.d("JSLOG", badImages.length() + " bad images.");
 
         Customer nextCustomer = new Customer();
         TextView servedText = (TextView) findViewById(R.id.servedText);
@@ -120,6 +161,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void helpButton(View view) {
 
+        Animation fadeButton = AnimationUtils.loadAnimation(this, R.anim.fadein);
+        ImageButton helpButton = (ImageButton) this.findViewById(R.id.helpButton);
+
+        helpButton.startAnimation(fadeButton);
+
         // Update correct count
         if(mustHelp) {
             correctCount += 1;
@@ -132,11 +178,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void holdButton(View view) {
+        Animation fadeButton = AnimationUtils.loadAnimation(this, R.anim.fadein);
+        ImageButton holdButton = (ImageButton) this.findViewById(R.id.holdButton);
 
+        holdButton.startAnimation(fadeButton);
         nextCustomer();
     }
 
     public void hangupButton(View view) {
+        Animation fadeButton = AnimationUtils.loadAnimation(this, R.anim.fadein);
+        ImageButton hangupButton = (ImageButton) this.findViewById(R.id.hangupButton);
+
+        hangupButton.startAnimation(fadeButton);
 
         // Update correct count
         if(mustHelp) {
@@ -153,5 +206,11 @@ public class MainActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         timerHandler.removeCallbacks(timerRunnable);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        nextCustomer();
     }
 }

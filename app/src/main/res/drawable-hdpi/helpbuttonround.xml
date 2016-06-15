@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#00FFFF"/>
+        </shape>
+    </item>
+    <item
+        android:drawable="@android:drawable/stat_sys_headset"
+        android:bottom="23dp"
+        android:left="23dp"
+        android:right="23dp"
+        android:top="23dp"/>
+</layer-list>
