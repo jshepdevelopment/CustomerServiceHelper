@@ -5,6 +5,27 @@
     android:layout_height="match_parent"
     tools:context="com.jshepdevelopment.customerservicehelper.MainActivity">
     <!-- sign-in button -->
+    <!-- sign-in button -->
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newsfeedmarquee"
+        android:onClick="signInClicked"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="49dp" />
+
+    <!-- sign-out button -->
+    <Button
+        android:id="@+id/sign_out_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/sign_in_button"
+        android:onClick="signOutClicked"
+        android:text="Sign Out"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/onscreen"

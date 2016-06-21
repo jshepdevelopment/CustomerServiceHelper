@@ -12,4 +12,5 @@
     <string name="timer">00:00:00</string>
     <string name="newsfeed">News feed:</string>
 
+    <string name="signin_other_error">"Error Error Error"</string>
 </resources>
