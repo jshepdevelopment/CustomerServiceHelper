@@ -3,20 +3,17 @@ package com.jshepdevelopment.customerservicehelper;
 import android.app.Activity;
 import android.content.res.TypedArray;
 import android.os.Handler;
-import android.os.Message;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
-import java.util.Timer;
-import java.util.concurrent.RunnableFuture;
 
 public class MainActivity extends Activity {
 
