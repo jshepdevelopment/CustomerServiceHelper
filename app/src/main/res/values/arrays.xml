@@ -6,6 +6,11 @@
         <item>@drawable/good03</item>
         <item>@drawable/good04</item>
         <item>@drawable/good05</item>
+        <item>@drawable/good06</item>
+        <item>@drawable/good07</item>
+        <item>@drawable/good08</item>
+        <item>@drawable/good09</item>
+        <item>@drawable/good10</item>
     </integer-array>
 
     <integer-array name="bad_images">
@@ -14,6 +19,11 @@
         <item>@drawable/bad03</item>
         <item>@drawable/bad04</item>
         <item>@drawable/bad05</item>
+        <item>@drawable/bad06</item>
+        <item>@drawable/bad07</item>
+        <item>@drawable/bad08</item>
+        <item>@drawable/bad09</item>
+        <item>@drawable/bad10</item>
 
     </integer-array>
 
@@ -27,6 +37,11 @@
         <item>EARN MORE $$$ WORK AS CUSTOMER SERVICE MINION</item>
         <item>WANT $$$? BISH is HIRING for CUSTOMER SERVICE at COMPETITIVE fast food MANAGER wages!</item>
         <item>Your AD here. Your AD here. Give $$$ for your AD here.</item>
+        <item>Election coverage bores populace to the point of calling customer service.</item>
+        <item>Customer service employee looks for love in all the wrong places.</item>
+        <item>Find a date now. Wait a minute. You married! Get lost loser!</item>
+        <item>Company loses faith in customer service. Blames customer and service.</item>
+        <item>Customer is always wrong after all.</item>
     </string-array>
 
 </resources>
