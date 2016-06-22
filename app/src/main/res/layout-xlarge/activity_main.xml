@@ -42,17 +42,16 @@
         android:src="@drawable/onscreen"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:singleLine="true"
         android:ellipsize="marquee"
         android:text="This is a really long string of text that wont fit on a screen, because that's just the way it is."
         android:id="@+id/newsfeedmarquee"
-        android:layout_marginBottom="82dp"
+        android:layout_marginBottom="25dp"
         android:layout_above="@+id/customer"
-        android:layout_toRightOf="@+id/helpButton"
-        android:layout_toEndOf="@+id/helpButton" />
+        android:layout_centerHorizontal="true" />
 
 
     <TextView
@@ -90,8 +89,8 @@
 
     <ImageView
         android:id="@+id/customer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/servedText"
         android:contentDescription="@string/customer"
@@ -106,8 +105,8 @@
         android:src="@drawable/monitor" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/helpbuttonround"
         android:id="@+id/helpButton"
         android:onClick="helpButton"
@@ -118,8 +117,8 @@
         android:layout_marginBottom="15dp" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/holdbuttonround"
         android:id="@+id/holdButton"
         android:onClick="holdButton"
@@ -128,8 +127,8 @@
         android:layout_centerHorizontal="true" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/hangupbuttonround"
         android:id="@+id/hangupButton"
         android:onClick="hangupButton"
