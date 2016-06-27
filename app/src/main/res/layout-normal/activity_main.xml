@@ -42,18 +42,24 @@
         android:src="@drawable/onscreen"/>
 
     <TextView
-        android:layout_width="335px"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:singleLine="true"
         android:ellipsize="marquee"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="40dp"
         android:text="This is a really long string of text that wont fit on a screen, because that's just the way it is."
         android:id="@+id/newsfeedmarquee"
         android:layout_above="@+id/customer"
         android:layout_toRightOf="@+id/helpButton"
         android:layout_toEndOf="@+id/helpButton" />
 
+    <ImageView
+        android:id="@+id/onscreenfront"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/monitor"
+        android:src="@drawable/onscreenfront"/>
 
     <TextView
         android:layout_width="match_parent"

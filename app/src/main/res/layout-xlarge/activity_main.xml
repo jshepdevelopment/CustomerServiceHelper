@@ -42,7 +42,7 @@
         android:src="@drawable/onscreen"/>
 
     <TextView
-        android:layout_width="500dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:singleLine="true"
@@ -53,6 +53,12 @@
         android:layout_above="@+id/customer"
         android:layout_centerHorizontal="true" />
 
+    <ImageView
+        android:id="@+id/onscreenfront"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/monitor"
+        android:src="@drawable/onscreenfront"/>
 
     <TextView
         android:layout_width="match_parent"

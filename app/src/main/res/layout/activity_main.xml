@@ -54,6 +54,12 @@
         android:layout_toRightOf="@+id/helpButton"
         android:layout_toEndOf="@+id/helpButton" />
 
+    <ImageView
+        android:id="@+id/onscreenfront"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/monitor"
+        android:src="@drawable/onscreenfront"/>
 
     <TextView
         android:layout_width="match_parent"
