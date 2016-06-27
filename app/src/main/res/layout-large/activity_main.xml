@@ -105,6 +105,15 @@
         android:paddingBottom="20dp" />
 
     <ImageView
+        android:id="@+id/checkresult"
+        android:layout_width="132dp"
+        android:layout_height="132dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/servedText"
+        android:contentDescription="@string/customer"
+        android:paddingBottom="20dp"/>
+
+    <ImageView
         android:id="@+id/monitor"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

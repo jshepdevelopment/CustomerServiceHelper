@@ -203,15 +203,22 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
 
         Animation fadeButton = AnimationUtils.loadAnimation(this, R.anim.fadein);
         ImageButton helpButton = (ImageButton) this.findViewById(R.id.helpButton);
+        ImageView resultView = (ImageView) findViewById(R.id.checkresult);
+        Animation resultAnimation = AnimationUtils.loadAnimation(this, R.anim.checkresult);
+
 
         helpButton.startAnimation(fadeButton);
 
         // Update correct count
         if(mustHelp) {
+            resultView.setImageResource(R.drawable.correct);
             correctCount += 1;
         } else {
+            resultView.setImageResource(R.drawable.incorrect);
             correctCount -= 1;
         }
+
+        resultView.startAnimation(resultAnimation);
 
         helpCount += 1;
         nextCustomer();
@@ -228,15 +235,22 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
     public void hangupButton(View view) {
         Animation fadeButton = AnimationUtils.loadAnimation(this, R.anim.fadein);
         ImageButton hangupButton = (ImageButton) this.findViewById(R.id.hangupButton);
+        ImageView resultView = (ImageView) findViewById(R.id.checkresult);
+        Animation resultAnimation = AnimationUtils.loadAnimation(this, R.anim.checkresult);
 
         hangupButton.startAnimation(fadeButton);
 
         // Update correct count
         if(mustHelp) {
             correctCount -= 1;
+            resultView.setImageResource(R.drawable.incorrect);
         } else {
+            resultView.setImageResource(R.drawable.correct);
             correctCount += 1;
         }
+
+        resultView.startAnimation(resultAnimation);
+
 
         hangupCount += 1;
         nextCustomer();
