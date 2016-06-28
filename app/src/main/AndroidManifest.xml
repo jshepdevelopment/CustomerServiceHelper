@@ -4,6 +4,7 @@
     package="com.jshepdevelopment.customerservicehelper">
 
     <uses-sdk tools:overrideLibrary="android.support.v7.appcompat"/>
+    <!--<uses-sdk android:minSdkVersion="14" />-->
 
     <application
         android:allowBackup="true"

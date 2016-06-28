@@ -11,6 +11,8 @@
         <item>@drawable/good08</item>
         <item>@drawable/good09</item>
         <item>@drawable/good10</item>
+        <item>@drawable/good11</item>
+        <item>@drawable/good12</item>
     </integer-array>
 
     <integer-array name="bad_images">
@@ -24,6 +26,8 @@
         <item>@drawable/bad08</item>
         <item>@drawable/bad09</item>
         <item>@drawable/bad10</item>
+        <item>@drawable/bad11</item>
+        <item>@drawable/bad12</item>
 
     </integer-array>
 

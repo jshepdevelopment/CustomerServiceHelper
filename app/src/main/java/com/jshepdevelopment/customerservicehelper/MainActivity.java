@@ -18,6 +18,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 import com.google.android.gms.*;
+import android.media.MediaPlayer;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -49,6 +50,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
     public int holdCount = 0;
 
     public Boolean mustHelp = false;
+
+    private MediaPlayer correctSound = null;
+    private MediaPlayer incorrectSound = null;
 
     //runs without a timer by reposting this handler at the end of the runnable
     Handler timerHandler = new Handler();
@@ -95,6 +99,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
+
+        correctSound = MediaPlayer.create(this, R.raw.correct);
+        incorrectSound = MediaPlayer.create(this, R.raw.incorrect);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -211,10 +218,12 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
 
         // Update correct count
         if(mustHelp) {
+            correctSound.start();
             resultView.setImageResource(R.drawable.correct);
             correctCount += 1;
         } else {
             resultView.setImageResource(R.drawable.incorrect);
+            incorrectSound.start();
             correctCount -= 1;
         }
 
@@ -244,13 +253,12 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         if(mustHelp) {
             correctCount -= 1;
             resultView.setImageResource(R.drawable.incorrect);
+            incorrectSound.start();
         } else {
             resultView.setImageResource(R.drawable.correct);
             correctCount += 1;
+            correctSound.start();
         }
-
-        resultView.startAnimation(resultAnimation);
-
 
         hangupCount += 1;
         nextCustomer();
