@@ -13,6 +13,9 @@
         <item>@drawable/good10</item>
         <item>@drawable/good11</item>
         <item>@drawable/good12</item>
+        <item>@drawable/good13</item>
+        <item>@drawable/good14</item>
+        <item>@drawable/good15</item>
     </integer-array>
 
     <integer-array name="bad_images">
@@ -28,6 +31,9 @@
         <item>@drawable/bad10</item>
         <item>@drawable/bad11</item>
         <item>@drawable/bad12</item>
+        <item>@drawable/bad13</item>
+        <item>@drawable/bad14</item>
+        <item>@drawable/bad15</item>
 
     </integer-array>
 
@@ -41,8 +47,17 @@
         <item>EARN MORE $$$ WORK AS CUSTOMER SERVICE MINION</item>
         <item>WANT $$$? BISH is HIRING for CUSTOMER SERVICE at COMPETITIVE fast food MANAGER wages!</item>
         <item>Your AD here. Your AD here. Give $$$ for your AD here.</item>
+        <item>Another customer service representative hangs up on customer. No one surprised.</item>
+        <item>Call the law firm of Pooter and Pootmore if hung up on by customer service.</item>
+        <item>Really lame corporation does not pay support technicians. Provides gruel allowance.</item>
+        <item>Packaged deal includes phone, internet, tv, coffee, bread, soap, and lighting.</item>
+        <item>Sign up now for only 129.99. 100 year contract. Terms may change. Yes they will.</item>
+        <item>CEO of BigOl Broadband Inc. looks lost in carefree photo with humans.</item>
         <item>Election coverage bores populace to the point of calling customer service.</item>
         <item>Customer service employee looks for love in all the wrong places.</item>
+        <item>Find a date now. Wait a minute. You married! Get lost loser!</item>
+        <item>Follow election coverage for some reason. As if you care.</item>
+        <item>Computer virus detected, for real guys. Only 10 FitCoins for antidote. Pay now.</item>
         <item>Find a date now. Wait a minute. You married! Get lost loser!</item>
         <item>Company loses faith in customer service. Blames customer and service.</item>
         <item>Customer is always wrong after all.</item>

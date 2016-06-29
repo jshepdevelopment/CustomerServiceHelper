@@ -2,6 +2,7 @@ package com.jshepdevelopment.customerservicehelper;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Handler;
 
@@ -44,12 +45,13 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
     long newsStartTime = 0;
 
     public int customerCount = 0;
+    public int questionCount = 0;
     public int hangupCount = 0;
-    public int helpCount = 0;
     public int correctCount = 0;
-    public int holdCount = 0;
+
 
     public Boolean mustHelp = false;
+    public Boolean needsUpdate = true;
 
     private MediaPlayer correctSound = null;
     private MediaPlayer incorrectSound = null;
@@ -78,15 +80,23 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         public void run() {
             long millis = System.currentTimeMillis() - newsStartTime;
             int seconds = (int) (millis / 1000);
-            int minutes = seconds / 60;
             seconds = seconds % 60;
 
-            Log.d("JSLOG", "Newsfeed seconds: " + seconds);
+            //Log.d("JSLOG", "Newsfeed seconds: " + seconds);
 
-            // Update news item every 15 seconds
-            if(seconds % 15 == 0) {
-                nextNewsItem();
+            // Update news item every 30 seconds
+            if(seconds % 30 == 0) {
+                if(needsUpdate) {
+                    nextNewsItem();
+                    needsUpdate = false;
+                }
             }
+
+            // Preventing a double news update
+            if(seconds % 16 == 0) {
+                needsUpdate = true;
+            }
+
             newsTimerHandler.postDelayed(this, 500);
         }
     };
@@ -103,6 +113,14 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         correctSound = MediaPlayer.create(this, R.raw.correct);
         incorrectSound = MediaPlayer.create(this, R.raw.incorrect);
 
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("customerPref", MODE_PRIVATE);
+
+        if(pref != null) {
+            customerCount = pref.getInt("customer_count", 0); //Load
+            correctCount = pref.getInt("correct_count", 0);
+            hangupCount = pref.getInt("hangup_count", 0);
+        }
+
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -110,8 +128,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
                 // add other APIs and scopes here as needed
                 .build();
 
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.sign_out_button).setOnClickListener(this);
+        //findViewById(R.id.sign_in_button).setOnClickListener(this);
+        //findViewById(R.id.sign_out_button).setOnClickListener(this);
 
         //Set up customer View
         //ImageView customerView = (ImageView) findViewById(R.id.customer);
@@ -182,7 +200,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
             randomNum = rand.nextInt(badImages.length());
             Log.d("JSLOG", "bad randomNum is " + randomNum);
             customerView.setImageDrawable(badImages.getDrawable(randomNum));
-
         }
 
         // Start the animation
@@ -193,7 +210,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
 
         if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
             // Call a Play Games services API method, for example:
-            Games.Leaderboards.submitScore(mGoogleApiClient, "CgkI59LTldMSEAIQAQ", customerCount);
+            Games.Leaderboards.submitScore(mGoogleApiClient, this.getBaseContext().getString( R.string.leaderboard_customers), customerCount);
         } else {
             // Alternative implementation (or warn user that they must
             // sign in to use this feature)
@@ -204,6 +221,27 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
 
         startTime = System.currentTimeMillis();
         timerHandler.postDelayed(timerRunnable, 0);
+
+        if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+            if (customerCount > 10) {
+                Games.Achievements.unlock(mGoogleApiClient, this.getBaseContext().getString( R.string.achievement_youre_hired));
+            }
+            if (customerCount > 100) {
+                Games.Achievements.unlock(mGoogleApiClient, this.getBaseContext().getString( R.string.achievement_lots_of_love));
+            }
+            if (customerCount > 1000) {
+                Games.Achievements.unlock(mGoogleApiClient, this.getBaseContext().getString( R.string.achievement_extreme_customer_service));
+            }
+            if (customerCount > 10000) {
+                Games.Achievements.unlock(mGoogleApiClient, this.getBaseContext().getString( R.string.achievement_customer_service_master));
+            }
+            if (questionCount > 10) {
+                Games.Achievements.unlock(mGoogleApiClient, this.getBaseContext().getString( R.string.achievement_youre_fired));
+            }
+        } else {
+            // Alternative implementation (or warn user that they must
+            // sign in to use this feature)
+        }
     }
 
     public void helpButton(View view) {
@@ -212,7 +250,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         ImageButton helpButton = (ImageButton) this.findViewById(R.id.helpButton);
         ImageView resultView = (ImageView) findViewById(R.id.checkresult);
         Animation resultAnimation = AnimationUtils.loadAnimation(this, R.anim.checkresult);
-
 
         helpButton.startAnimation(fadeButton);
 
@@ -229,16 +266,27 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
 
         resultView.startAnimation(resultAnimation);
 
-        helpCount += 1;
         nextCustomer();
     }
 
     public void holdButton(View view) {
         Animation fadeButton = AnimationUtils.loadAnimation(this, R.anim.fadein);
         ImageButton holdButton = (ImageButton) this.findViewById(R.id.holdButton);
-
         holdButton.startAnimation(fadeButton);
+
+        questionCount+=1;
+
         nextCustomer();
+    }
+
+    public void showAchievements(View view) {
+        startActivityForResult(Games.Achievements.getAchievementsIntent(mGoogleApiClient),
+                123);
+    }
+
+    public void showLeaderboard(View view) {
+        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
+                this.getBaseContext().getString( R.string.leaderboard_customers)), 321);
     }
 
     public void hangupButton(View view) {
@@ -246,7 +294,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         ImageButton hangupButton = (ImageButton) this.findViewById(R.id.hangupButton);
         ImageView resultView = (ImageView) findViewById(R.id.checkresult);
         Animation resultAnimation = AnimationUtils.loadAnimation(this, R.anim.checkresult);
-
         hangupButton.startAnimation(fadeButton);
 
         // Update correct count
@@ -260,6 +307,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
             correctSound.start();
         }
 
+        resultView.startAnimation(resultAnimation);
+
         hangupCount += 1;
         nextCustomer();
     }
@@ -267,6 +316,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
     @Override
     public void onClick(View view) {
 
+        /*
         if (view.getId() == R.id.sign_out_button) {
             // user explicitly signed out, so turn off auto sign in
             mExplicitSignOut = true;
@@ -289,7 +339,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
             // show sign-in button, hide the sign-out button
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_button).setVisibility(View.GONE);
-        }
+        }*/
     }
 
     @Override
@@ -312,8 +362,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
     @Override
     public void onConnected(Bundle connectionHint) {
         // show sign-out button, hide the sign-in button
-        findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-        findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
+        //findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+        //findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
 
         // (your code here: update UI, enable functionality that depends on sign in, etc)
     }
@@ -370,12 +420,32 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
     @Override
     public void onPause() {
         super.onPause();
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("customerPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+
+        editor.putInt("customer_count", customerCount); // Save customer count
+        editor.putInt("correct_count", correctCount); // Save correct actions
+        editor.putInt("hangup_count", hangupCount); // Save incorrect actions
+
+        editor.apply();
+
+        Log.d("JSLOG", "App paused. Scores saved.");
+
+
         timerHandler.removeCallbacks(timerRunnable);
+        timerHandler.removeCallbacks(newsTimerRunnable);
     }
 
     @Override
     public void onResume() {
         super.onResume();
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("customerPref", MODE_PRIVATE);
+
+        customerCount = pref.getInt("customer_count", 0); //Load
+        correctCount = pref.getInt("correct_count", 0);
+        hangupCount = pref.getInt("hangup_count", 0);
+
         nextCustomer();
     }
 

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_id">640800844135</string>
-    <string name="achievement_1">CgkI59LTldMSEAIQAw</string>
-    <string name="achievement_2">CgkI59LTldMSEAIQBA</string>
-    <string name="achievement_3">CgkI59LTldMSEAIQBQ</string>
-    <string name="achievement_4">CgkI59LTldMSEAIQBg</string>
-    <string name="achievement_5">CgkI59LTldMSEAIQBw</string>
-    <string name="customers_served_leaderboard">CgkI59LTldMSEAIQAQ</string>
-
+    <string name="package_name">com.jshepdevelopment.customerservicehelper</string>
+    <string name="achievement_youre_hired">CgkI59LTldMSEAIQAw</string>
+    <string name="achievement_youre_fired">CgkI59LTldMSEAIQBA</string>
+    <string name="achievement_lots_of_love">CgkI59LTldMSEAIQBQ</string>
+    <string name="achievement_extreme_customer_service">CgkI59LTldMSEAIQBg</string>
+    <string name="achievement_customer_service_master">CgkI59LTldMSEAIQBw</string>
+    <string name="leaderboard_customers">CgkI59LTldMSEAIQAQ</string>
+    <string name="leaderboard_top_csr">CgkI59LTldMSEAIQCA</string>
+    <string name="leaderboard_call_time">CgkI59LTldMSEAIQCQ</string>
 </resources>
