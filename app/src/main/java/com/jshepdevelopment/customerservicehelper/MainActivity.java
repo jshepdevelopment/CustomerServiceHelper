@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +21,9 @@ import java.util.Random;
 
 import com.google.android.gms.*;
 import android.media.MediaPlayer;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -27,6 +31,8 @@ import com.google.example.games.basegameutils.BaseGameUtils;
 
 public class MainActivity extends Activity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
+
+    private AdView mAdView;
 
     private static int RC_SIGN_IN = 9001;
 
@@ -109,6 +115,11 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+        mAdView.loadAd(adRequest);
 
         correctSound = MediaPlayer.create(this, R.raw.correct);
         incorrectSound = MediaPlayer.create(this, R.raw.incorrect);
@@ -419,6 +430,11 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
 
     @Override
     public void onPause() {
+
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+
         super.onPause();
         SharedPreferences pref = getApplicationContext().getSharedPreferences("customerPref", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
@@ -438,6 +454,11 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
 
     @Override
     public void onResume() {
+
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+
         super.onResume();
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("customerPref", MODE_PRIVATE);

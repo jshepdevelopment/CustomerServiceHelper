@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context="com.jshepdevelopment.customerservicehelper.MainActivity">
     <!-- sign-in button -->
     <!-- sign-in button -->
@@ -13,6 +14,14 @@
         android:layout_height="fill_parent"
         android:contentDescription="@string/monitor"
         android:src="@drawable/backdrop" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/topbanner">
+    </com.google.android.gms.ads.AdView>
 
     <ImageView
         android:id="@+id/onscreen"
