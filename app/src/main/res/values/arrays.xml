@@ -16,6 +16,16 @@
         <item>@drawable/good13</item>
         <item>@drawable/good14</item>
         <item>@drawable/good15</item>
+        <item>@drawable/good16</item>
+        <item>@drawable/good17</item>
+        <item>@drawable/good18</item>
+        <item>@drawable/good19</item>
+        <item>@drawable/good20</item>
+        <item>@drawable/good21</item>
+        <item>@drawable/good22</item>
+        <item>@drawable/good23</item>
+        <item>@drawable/good24</item>
+        <item>@drawable/good25</item>
     </integer-array>
 
     <integer-array name="bad_images">
@@ -34,6 +44,16 @@
         <item>@drawable/bad13</item>
         <item>@drawable/bad14</item>
         <item>@drawable/bad15</item>
+        <item>@drawable/bad16</item>
+        <item>@drawable/bad17</item>
+        <item>@drawable/bad18</item>
+        <item>@drawable/bad19</item>
+        <item>@drawable/bad20</item>
+        <item>@drawable/bad21</item>
+        <item>@drawable/bad22</item>
+        <item>@drawable/bad23</item>
+        <item>@drawable/bad24</item>
+        <item>@drawable/bad25</item>
 
     </integer-array>
 

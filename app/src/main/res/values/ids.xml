@@ -7,7 +7,10 @@
     <string name="achievement_lots_of_love">CgkI59LTldMSEAIQBQ</string>
     <string name="achievement_extreme_customer_service">CgkI59LTldMSEAIQBg</string>
     <string name="achievement_customer_service_master">CgkI59LTldMSEAIQBw</string>
+    <string name="achievement_csr_king">CgkI59LTldMSEAIQCw</string>
+    <string name="achievement_csr_supreme_ruler">CgkI59LTldMSEAIQDA</string>
+    <string name="achievement_hang_up_artist">CgkI59LTldMSEAIQDQ</string>
     <string name="leaderboard_customers">CgkI59LTldMSEAIQAQ</string>
     <string name="leaderboard_top_csr">CgkI59LTldMSEAIQCA</string>
-    <string name="leaderboard_call_time">CgkI59LTldMSEAIQCQ</string>
+    <string name="leaderboard_customers_on_hold">CgkI59LTldMSEAIQCg</string>
 </resources>

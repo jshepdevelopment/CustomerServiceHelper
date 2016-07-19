@@ -130,6 +130,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
             customerCount = pref.getInt("customer_count", 0); //Load
             correctCount = pref.getInt("correct_count", 0);
             hangupCount = pref.getInt("hangup_count", 0);
+            questionCount = pref.getInt("question_count", 0);
         }
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -222,6 +223,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
             // Call a Play Games services API method, for example:
             Games.Leaderboards.submitScore(mGoogleApiClient, this.getBaseContext().getString( R.string.leaderboard_customers), customerCount);
+            Games.Leaderboards.submitScore(mGoogleApiClient, this.getBaseContext().getString( R.string.leaderboard_top_csr), correctCount);
+            Games.Leaderboards.submitScore(mGoogleApiClient, this.getBaseContext().getString( R.string.leaderboard_customers_on_hold), questionCount);
+
         } else {
             // Alternative implementation (or warn user that they must
             // sign in to use this feature)
@@ -234,8 +238,17 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         timerHandler.postDelayed(timerRunnable, 0);
 
         if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
-            if (customerCount > 10) {
+            if (correctCount > 10) {
                 Games.Achievements.unlock(mGoogleApiClient, this.getBaseContext().getString( R.string.achievement_youre_hired));
+            }
+            if (correctCount > 100) {
+                Games.Achievements.unlock(mGoogleApiClient, this.getBaseContext().getString( R.string.achievement_csr_king));
+            }
+            if (correctCount > 1000) {
+                Games.Achievements.unlock(mGoogleApiClient, this.getBaseContext().getString( R.string.achievement_csr_supreme_ruler));
+            }
+            if (hangupCount > 10) {
+                Games.Achievements.unlock(mGoogleApiClient, this.getBaseContext().getString( R.string.achievement_hang_up_artist));
             }
             if (customerCount > 100) {
                 Games.Achievements.unlock(mGoogleApiClient, this.getBaseContext().getString( R.string.achievement_lots_of_love));
@@ -442,6 +455,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         editor.putInt("customer_count", customerCount); // Save customer count
         editor.putInt("correct_count", correctCount); // Save correct actions
         editor.putInt("hangup_count", hangupCount); // Save incorrect actions
+        editor.putInt("question_count", questionCount); // Save question count
 
         editor.apply();
 
@@ -466,6 +480,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         customerCount = pref.getInt("customer_count", 0); //Load
         correctCount = pref.getInt("correct_count", 0);
         hangupCount = pref.getInt("hangup_count", 0);
+        questionCount = pref.getInt("question_count", 0);
 
         nextCustomer();
     }
