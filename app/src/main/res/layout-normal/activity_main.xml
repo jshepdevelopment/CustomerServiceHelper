@@ -107,7 +107,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:contentDescription="@string/monitor"
-        android:src="@drawable/monitor" />
+        android:src="@drawable/monitor"
+        android:alpha="100" />
 
     <Button
         android:id="@+id/show_achievements_button"
@@ -131,6 +132,14 @@
         android:layout_marginTop="50dp"
         android:text="Leaders" />
 
+    <Button
+        android:id="@+id/show_csr_leaderboard_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showCSRLeaderboard"
+        android:text="Top CSR"
+        android:layout_alignTop="@+id/show_achievements_button"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -166,6 +175,15 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="5dp"/>
 
+    <ImageButton
+        android:id="@+id/toggle_sound_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toggleSound"
+        android:background="@android:drawable/ic_lock_silent_mode_off"
+        android:layout_alignBottom="@+id/show_leaderboard_button"
+        android:layout_alignLeft="@+id/helpButton"
+        android:layout_alignStart="@+id/helpButton"  />
 
 
 </RelativeLayout>

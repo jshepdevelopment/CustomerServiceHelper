@@ -3,6 +3,7 @@ package com.jshepdevelopment.customerservicehelper;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.os.Handler;
 
@@ -55,9 +56,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
     public int hangupCount = 0;
     public int correctCount = 0;
 
-
     public Boolean mustHelp = false;
     public Boolean needsUpdate = true;
+    public boolean soundOn = true;
 
     private MediaPlayer correctSound = null;
     private MediaPlayer incorrectSound = null;
@@ -154,6 +155,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         TextView newsfeedTextView=(TextView) findViewById(R.id.newsfeedmarquee);
         newsfeedTextView.setSelected(true);
 
+        // Setup sound
+
         //Start the next customer animation
         nextCustomer();
 
@@ -162,6 +165,21 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
 
     }
 
+
+    public void toggleSound(View view) {
+
+        ImageButton toggleSoundButton = (ImageButton) this.findViewById(R.id.toggle_sound_button);
+
+        if(soundOn) {
+            toggleSoundButton.setAlpha(50);
+            soundOn = false;
+        }
+        if(!soundOn) {
+            toggleSoundButton.setAlpha(100);
+            soundOn = true;
+        }
+
+    }
     public void nextNewsItem() {
 
         Random rand = new Random();
@@ -279,12 +297,16 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
 
         // Update correct count
         if(mustHelp) {
-            correctSound.start();
+            if(soundOn) {
+                correctSound.start();
+            }
             resultView.setImageResource(R.drawable.correct);
             correctCount += 1;
         } else {
             resultView.setImageResource(R.drawable.incorrect);
-            incorrectSound.start();
+            if(soundOn) {
+                incorrectSound.start();
+            }
             correctCount -= 1;
         }
 
@@ -311,6 +333,11 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
     public void showLeaderboard(View view) {
         startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
                 this.getBaseContext().getString( R.string.leaderboard_customers)), 321);
+    }
+
+    public void showCSRLeaderboard(View view) {
+        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
+                this.getBaseContext().getString( R.string.leaderboard_top_csr)), 321);
     }
 
     public void hangupButton(View view) {
