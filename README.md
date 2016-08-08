@@ -7,4 +7,4 @@ You've been assigned to answer customer service calls for a mega big soulless co
 Your duty is to help good customers and avoid helping bad customers. 
 Should you choose to accept mission, then imagine your salary if it were slightly more than minimum wage.
 
-Assets provided by EmojiOne.com.
+Emoji icons provided by <a href="emojione.com">EmojiOne.com</a>.
