@@ -58,7 +58,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
 
     public Boolean mustHelp = false;
     public Boolean needsUpdate = true;
-    public boolean soundOn = true;
+    public Boolean soundOn = true;
 
     private MediaPlayer correctSound = null;
     private MediaPlayer incorrectSound = null;
@@ -171,12 +171,14 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         ImageButton toggleSoundButton = (ImageButton) this.findViewById(R.id.toggle_sound_button);
 
         if(soundOn) {
-            toggleSoundButton.setAlpha(50);
+            toggleSoundButton.setBackground(getDrawable(android.R.drawable.ic_lock_silent_mode));//"@android:drawable/ic_lock_silent_mode_off");
             soundOn = false;
-        }
-        if(!soundOn) {
-            toggleSoundButton.setAlpha(100);
+            Log.d("JSLOG", "Sound is off.");
+        } else {
+            toggleSoundButton.setBackground(getDrawable(android.R.drawable.ic_lock_silent_mode_off));//"@android:drawable/ic_lock_silent_mode_off");
+
             soundOn = true;
+            Log.d("JSLOG", "Sound is on.");
         }
 
     }
@@ -351,11 +353,15 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         if(mustHelp) {
             correctCount -= 1;
             resultView.setImageResource(R.drawable.incorrect);
-            incorrectSound.start();
+            if(soundOn) {
+                incorrectSound.start();
+            }
         } else {
             resultView.setImageResource(R.drawable.correct);
             correctCount += 1;
-            correctSound.start();
+            if(soundOn) {
+                correctSound.start();
+            }
         }
 
         resultView.startAnimation(resultAnimation);
