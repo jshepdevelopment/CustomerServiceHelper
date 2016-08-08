@@ -26,6 +26,16 @@
         <item>@drawable/good23</item>
         <item>@drawable/good24</item>
         <item>@drawable/good25</item>
+        <item>@drawable/good26</item>
+        <item>@drawable/good27</item>
+        <item>@drawable/good28</item>
+        <item>@drawable/good29</item>
+        <item>@drawable/good30</item>
+        <item>@drawable/good31</item>
+        <item>@drawable/good32</item>
+        <item>@drawable/good33</item>
+        <item>@drawable/good34</item>
+        <item>@drawable/good35</item>
     </integer-array>
 
     <integer-array name="bad_images">
@@ -54,6 +64,16 @@
         <item>@drawable/bad23</item>
         <item>@drawable/bad24</item>
         <item>@drawable/bad25</item>
+        <item>@drawable/bad26</item>
+        <item>@drawable/bad27</item>
+        <item>@drawable/bad28</item>
+        <item>@drawable/bad29</item>
+        <item>@drawable/bad30</item>
+        <item>@drawable/bad31</item>
+        <item>@drawable/bad32</item>
+        <item>@drawable/bad33</item>
+        <item>@drawable/bad34</item>
+        <item>@drawable/bad35</item>
 
     </integer-array>
 
@@ -81,6 +101,12 @@
         <item>Find a date now. Wait a minute. You married! Get lost loser!</item>
         <item>Company loses faith in customer service. Blames customer and service.</item>
         <item>Customer is always wrong after all.</item>
+        <item>This just in... Never call customer service.</item>
+        <item>New record as customer waits on hold for more than eight years.</item>
+        <item>Customer Service Reps may eventually get paid real wages. Eventually.</item>
+        <item>Big Billys Big Bacon Burger stand NOW HIRING.</item>
+        <item>Giant global megadish directnet hiring now. Earn REAL food rations.</item>
+
     </string-array>
 
 </resources>

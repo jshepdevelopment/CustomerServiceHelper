@@ -1,28 +1,20 @@
 package com.jshepdevelopment.customerservicehelper;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.os.Handler;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.Random;
-
-import com.google.android.gms.*;
 import android.media.MediaPlayer;
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.common.ConnectionResult;
@@ -171,12 +163,11 @@ public class MainActivity extends Activity implements View.OnClickListener, Goog
         ImageButton toggleSoundButton = (ImageButton) this.findViewById(R.id.toggle_sound_button);
 
         if(soundOn) {
-            toggleSoundButton.setBackground(getDrawable(android.R.drawable.ic_lock_silent_mode));//"@android:drawable/ic_lock_silent_mode_off");
+            toggleSoundButton.setBackgroundResource(android.R.drawable.ic_lock_silent_mode);
             soundOn = false;
             Log.d("JSLOG", "Sound is off.");
         } else {
-            toggleSoundButton.setBackground(getDrawable(android.R.drawable.ic_lock_silent_mode_off));//"@android:drawable/ic_lock_silent_mode_off");
-
+            toggleSoundButton.setBackgroundResource(android.R.drawable.ic_lock_silent_mode_off);
             soundOn = true;
             Log.d("JSLOG", "Sound is on.");
         }
