@@ -37,7 +37,9 @@
         android:singleLine="true"
         android:ellipsize="marquee"
         android:layout_marginBottom="40dp"
+        android:layout_marginLeft="15dp"
         android:text="This is a really long string of text that wont fit on a screen, because that's just the way it is."
+        android:textColor="@color/colorPrimaryDark"
         android:id="@+id/newsfeedmarquee"
         android:layout_above="@+id/customer"
         android:layout_toRightOf="@+id/helpButton"
@@ -125,21 +127,12 @@
         android:id="@+id/show_leaderboard_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="showLeaderboard"
+        android:onClick="showCSRLeaderboard"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/timerText"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="50dp"
         android:text="Leaders" />
-
-    <Button
-        android:id="@+id/show_csr_leaderboard_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="showCSRLeaderboard"
-        android:text="Top CSR"
-        android:layout_alignTop="@+id/show_achievements_button"
-        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="wrap_content"

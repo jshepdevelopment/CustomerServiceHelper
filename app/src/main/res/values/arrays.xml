@@ -36,6 +36,12 @@
         <item>@drawable/good33</item>
         <item>@drawable/good34</item>
         <item>@drawable/good35</item>
+        <item>@drawable/good36</item>
+        <item>@drawable/good37</item>
+        <item>@drawable/good38</item>
+        <item>@drawable/good39</item>
+        <item>@drawable/good40</item>
+
     </integer-array>
 
     <integer-array name="bad_images">
@@ -74,6 +80,11 @@
         <item>@drawable/bad33</item>
         <item>@drawable/bad34</item>
         <item>@drawable/bad35</item>
+        <item>@drawable/bad36</item>
+        <item>@drawable/bad37</item>
+        <item>@drawable/bad38</item>
+        <item>@drawable/bad39</item>
+        <item>@drawable/bad40</item>
 
     </integer-array>
 
@@ -106,6 +117,12 @@
         <item>Customer Service Reps may eventually get paid real wages. Eventually.</item>
         <item>Big Billys Big Bacon Burger stand NOW HIRING.</item>
         <item>Giant global megadish directnet hiring now. Earn REAL food rations.</item>
+        <item>Clicking banner ads are good for health.</item>
+        <item>Touching banner ads are good for health.</item>
+        <item>World peace declared after leaders follow banner ads.</item>
+        <item>New era of enlightenment linked to clicking banner ads.</item>
+        <item>Banner ads bring joy to millions.</item>
+
 
     </string-array>
 

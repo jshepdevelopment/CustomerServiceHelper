@@ -4,8 +4,8 @@
     <string name="customer">Customer</string>
     <string name="monitor">Monitor</string>
 
-   <!-- <string name="topbanner">ca-app-pub-2390888048112065/8348170035</string> -->
-    <string name="topbanner">ca-app-pub-3940256099942544/6300978111</string>
+   <string name="topbanner">ca-app-pub-2390888048112065/8348170035</string>
+   <!--<string name="topbanner">ca-app-pub-3940256099942544/6300978111</string>-->
 
     <string name="help">Help</string>
     <string name="hold">Hold</string>

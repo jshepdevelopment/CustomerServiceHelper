@@ -37,10 +37,13 @@
         android:singleLine="true"
         android:ellipsize="marquee"
         android:text="This is a really long string of text that wont fit on a screen, because that's just the way it is."
+        android:textColor="@color/colorPrimaryDark"
         android:id="@+id/newsfeedmarquee"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginLeft="20dp"
         android:layout_above="@+id/customer"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/helpButton"
+        android:layout_toEndOf="@+id/helpButton" />
 
     <ImageView
         android:id="@+id/onscreenfront"
@@ -55,6 +58,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:textColor="@color/colorPrimaryDark"
         android:text="@string/served"
         android:textAlignment="center"
         android:id="@+id/servedText" />
@@ -67,6 +71,7 @@
         android:layout_centerVertical="true"
         android:layout_below="@id/servedText"
         android:text="@string/correct"
+        android:textColor="@color/colorPrimaryDark"
         android:textAlignment="center"
         android:id="@+id/correctText" />
 
@@ -74,6 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_below="@id/correctText"
@@ -84,8 +90,8 @@
 
     <ImageView
         android:id="@+id/customer"
-        android:layout_width="256dp"
-        android:layout_height="256dp"
+        android:layout_width="132dp"
+        android:layout_height="132dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/servedText"
         android:contentDescription="@string/customer"
@@ -94,8 +100,8 @@
 
     <ImageView
         android:id="@+id/checkresult"
-        android:layout_width="256dp"
-        android:layout_height="256dp"
+        android:layout_width="132dp"
+        android:layout_height="132dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/servedText"
         android:contentDescription="@string/customer"
@@ -123,25 +129,16 @@
         android:id="@+id/show_leaderboard_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="showLeaderboard"
+        android:onClick="showCSRLeaderboard"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/timerText"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="50dp"
         android:text="Leaders" />
 
-    <Button
-        android:id="@+id/show_csr_leaderboard_button"
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="showCSRLeaderboard"
-        android:text="Top CSR"
-        android:layout_alignTop="@+id/show_achievements_button"
-        android:layout_centerHorizontal="true" />
-
-    <ImageButton
-        android:layout_width="150dp"
-        android:layout_height="150dp"
         android:background="@drawable/helpbuttonround"
         android:id="@+id/helpButton"
         android:onClick="helpButton"
@@ -152,8 +149,8 @@
         android:layout_marginBottom="15dp" />
 
     <ImageButton
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/holdbuttonround"
         android:id="@+id/holdButton"
         android:onClick="holdButton"
@@ -162,8 +159,8 @@
         android:layout_centerHorizontal="true" />
 
     <ImageButton
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/hangupbuttonround"
         android:id="@+id/hangupButton"
         android:onClick="hangupButton"
